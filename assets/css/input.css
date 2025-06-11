@@ -1,0 +1,539 @@
+@import url("https://use.typekit.net/axa8ihr.css");
+@import url("../libs/node_modules/@splidejs/splide/dist/css/splide-core.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth overflow-x-hidden;
+    }
+
+    body {
+        @apply text-base/text font-deuterium-normal text-dark bg-light;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-deuterium-medium text-azul;
+    }
+
+    h1 {
+        @apply lg:text-6xl/display sm:text-5xl/display text-4xl/display;
+    }
+
+    h2 {
+        @apply lg:text-5xl/display sm:text-4xl/display text-3xl/display;
+    }
+
+    h3 {
+        @apply lg:text-3xl/display sm:text-2xl/display text-xl/display;
+    }
+
+    h4 {
+        @apply lg:text-2xl/display sm:text-lg/display text-base/display;
+    }
+
+    i,
+    em {
+        @apply italic;
+    }
+
+    strong {
+        @apply font-deuterium-medium font-normal;
+    }
+
+    strong.strong-rosa {
+        @apply text-rosa;
+    }
+
+    a {
+        @apply underline;
+    }
+
+    .container {
+        @apply lg:px-10 sm:px-6 px-4;
+    }
+}
+
+@layer components {
+    /* Botões - Componentes reutilizáveis */
+    .btn-default {
+        @apply inline-flex flex-row items-center sm:gap-4 gap-2 bg-light rounded-full md:py-2 md:pr-2 md:pl-6 py-1 pr-1 pl-4 no-underline font-deuterium-medium text-azul sm:text-base text-sm;
+    }
+
+    .btn-default.btn-default-invert {
+        @apply md:pr-6 md:pl-2 pr-4 pl-1;
+    }
+
+    .btn-default .btn-text {
+        @apply mt-1 leading-none;
+    }
+
+    .btn-default .btn-icon {
+        @apply p-2 rounded-full bg-rosa transition duration-200 ease-in-out;
+    }
+
+    .btn-default .btn-icon svg {
+        @apply w-6 h-6 *:fill-azul;
+    }
+
+    .btn-default:hover .btn-icon {
+        @apply scale-[1.1]
+    }
+
+    .btn-default.btn-default-icon-down svg {
+        @apply rotate-90;
+    }
+
+    .btn-default.btn-rosa {
+        @apply bg-rosa text-azul;
+    }
+
+    .btn-default.btn-rosa .btn-icon {
+        @apply bg-azul;
+    }
+
+    .btn-default.btn-rosa .btn-icon svg {
+        @apply *:fill-white;
+    }
+
+    .btn-nav {
+        @apply inline-flex flex-row items-center sm:gap-3 gap-2 md:py-3 md:px-6 py-2 sm:px-4 px-2 rounded-full bg-rosa text-white font-deuterium-medium sm:text-base text-sm;
+    }
+
+    .btn-nav .span-btn {
+        @apply mt-1 sm:inline-flex hidden;
+    }
+
+    .btn-nav svg {
+        @apply *:fill-white transition duration-200 ease-in-out;
+    }
+
+    .btn-nav:hover svg {
+        @apply scale-[1.1];
+    }
+
+    .btn-nav.active svg {
+        @apply -rotate-45 scale-[1.1];
+    }
+
+    /* Nav arrows */
+
+    .nav-arrows-1 {
+        @apply inline-flex flex-row items-center gap-3;
+    }
+
+    .nav-arrows-1 button {
+        @apply inline-flex flex-row items-center justify-center p-4 bg-rosa rounded-full disabled:opacity-50 transition duration-200 ease-in-out;
+    }
+
+    .nav-arrows-1 button svg {
+        @apply w-6 h-6 *:fill-azul;
+    }
+
+    .nav-arrows-1 button.splide__arrow--prev svg {
+        @apply rotate-180;
+    }
+
+    /* Cards */
+
+    /* 1 */
+
+    .card-one {
+        @apply relative overflow-hidden w-full h-full md:py-8 py-6 sm:px-6 px-4 bg-white rounded-3xl flex flex-col gap-8;
+    }
+
+    .card-one .card-one-content {
+        @apply h-full;
+    }
+
+    .card-one .card-one-content img {
+        @apply mb-8;
+    }
+
+    .card-one .btn-default {
+        @apply justify-between break-all;
+    }
+
+    /* 2 */
+
+    .card-two {
+        @apply relative w-full bg-white flex flex-col rounded-3xl pl-[92px] py-6 pr-6 min-h-28 justify-center;
+    }
+
+    .card-two .icon-group {
+        @apply absolute top-0 left-0 bg-light pr-3 pb-3 rounded-br-3xl before:content-[''] before:absolute before:top-0 before:-right-6 before:w-6 before:h-6 before:bg-[url('https://ik.imagekit.io/agenciapiu/AstraZeneca/shape-angle-curved.svg?updatedAt=1727467926166')] before:bg-cover before:bg-no-repeat after:content-[''] after:absolute after:-bottom-6 after:left-0 after:w-6 after:h-6 after:bg-[url('https://ik.imagekit.io/agenciapiu/AstraZeneca/shape-angle-curved.svg?updatedAt=1727467926166')] after:bg-cover after:bg-no-repeat;
+    }
+
+    .card-two .icon-group .icon {
+        @apply p-4 bg-rosa rounded-full;
+    }
+
+    .card-two .icon-group .icon svg {
+        @apply w-6 h-6;
+    }
+
+    /* Splide one */
+
+    .splide-one .splide__content {
+        @apply relative z-0 lg:before:content-[''] before:content-none before:bg-light before:absolute before:top-0 before:left-[-9999%] before:h-full before:w-[9999%] before:z-10 lg:after:content-[''] after:content-none after:absolute after:top-0 after:left-0 after:h-full after:w-[40px] after:bg-gradient-to-l after:to-light after:from-light/0;
+    }
+
+    .splide-one .splide__content-left {
+        @apply relative z-10;
+    }
+
+    .splide-one .splide__content .splide__track {
+        @apply relative overflow-visible !pr-0;
+    }
+
+    /* Image content one */
+
+    .img-content-one {
+        @apply relative w-full h-full rounded-3xl overflow-hidden;
+    }
+
+    .img-content-one img {
+        @apply absolute top-0 left-0 w-full h-full object-cover object-center z-0;
+    }
+
+    .img-content-one svg {
+        @apply absolute bottom-0 left-0 w-3/5 h-auto z-10;
+    }
+
+    /* Modal */
+
+    .modal {
+        @apply invisible flex fixed z-50 left-0 top-0 w-full h-full bg-black/50 backdrop-blur-sm justify-center items-center lg:p-10 md:p-6 p-4 opacity-0 transition-all ease-in-out duration-200;
+    }
+
+    .modal.show {
+        @apply visible flex opacity-100;
+    }
+
+    .modal .modal-container {
+        @apply max-w-[600px] w-full h-full;
+    }
+
+    .modal .modal-container .modal-content {
+        @apply h-full flex flex-col gap-3;
+    }
+
+    .modal .modal-body {
+        @apply overflow-hidden overflow-y-scroll h-full rounded-3xl scrollbar-none;
+    }
+
+    .modal-list {
+        @apply relative py-10 sm:px-6 px-4 flex flex-col gap-6 bg-rosa rounded-3xl;
+    }
+
+    .modal-list ul {
+        @apply relative flex flex-col gap-2;
+    }
+
+    .modal-list ul.expanded {
+        @apply before:opacity-0
+    }
+
+    .modal-list ul li {
+        @apply bg-azul p-4 rounded-lg text-white ;
+    }
+
+    /* Nav flutuante */
+
+    .nav-flutuante {
+        @apply fixed bottom-[-200px] opacity-0 transition-all duration-500 ease-in-out left-0 w-full z-50 flex flex-row md:justify-center justify-end md:pb-10 sm:pb-6 pb-4 lg:px-10 sm:px-6 px-4;
+    }
+
+    .nav-flutuante.active {
+        @apply opacity-100 bottom-0;
+    }
+
+    .nav-flutuante .nav-flutuante-content {
+        @apply backdrop-blur-sm bg-dark/25 p-2 md:rounded-full rounded-3xl flex flex-row items-center;
+    }
+
+    .nav-flutuante .nav-flutuante-content .nav-flutuante-items {
+        @apply flex md:flex-row flex-col md:items-center items-start md:gap-3 gap-2 w-full;
+    }
+
+    .nav-flutuante .nav-flutuante-content .btn-default {
+        @apply md:pl-2 pl-4 transition duration-200 ease-in-out text-nowrap md:w-auto w-full justify-center;
+    }
+
+    .nav-flutuante .nav-flutuante-content .btn-default .btn-icon {
+        @apply md:inline-flex hidden;
+    }
+
+    .nav-flutuante .nav-flutuante-content .btn-default.active {
+        @apply bg-azul text-white;
+    }
+
+    /* Componentes comentados - para uso futuro */
+    
+    /* Cards */
+    /*
+    .card-one {
+        @apply relative overflow-hidden w-full h-full md:p-8 sm:p-6 py-6 px-4 bg-white rounded-3xl;
+    }
+
+    .card-one .card-one-content {
+        @apply relative z-10 flex flex-col items-start gap-4 h-full;
+    }
+
+    .card-one .card-one-content .card-one-text {
+        @apply *:mb-4 last:*:mb-0 h-full text-lg;
+    }
+
+    .card-one .card-one-content .card-one-text h3 {
+        @apply md:text-3xl text-2xl;
+    }
+
+    .card-one .card-one-content .card-one-text h3 span {
+        @apply font-deuterium-black;
+    }
+
+    .card-one .card-one-grafismo {
+        @apply absolute bottom-0 right-0 w-auto h-auto z-0;
+    }
+
+    .card-one .card-one-grafismo svg {
+        @apply *:*:fill-azul;
+    }
+
+    .card-one .btn-default {
+        @apply w-full justify-between;
+    }
+
+    .card-one.card-one-laranja .card-one-content .card-one-text h3 span {
+        @apply text-laranja;
+    }
+
+    .card-one.card-one-laranja .card-one-grafismo svg {
+        @apply *:*:fill-laranja;
+    }
+
+    .card-one.card-one-destaque {
+        @apply bg-azul;
+    }
+
+    .card-one.card-one-destaque .card-one-content .card-one-text h3 {
+        @apply text-white;
+    }
+
+    .card-one.card-one-destaque .card-one-content .card-one-text h3 span {
+        @apply text-rosa;
+    }
+
+    .card-one.card-one-destaque .card-one-content .card-one-text {
+        @apply text-white;
+    }
+
+    .card-one.card-one-destaque .card-one-grafismo svg {
+        @apply *:*:fill-rosa;
+    }
+
+    .card-two {
+        @apply bg-light w-full h-full py-8 sm:px-6 px-4 rounded-3xl flex flex-col gap-6;
+    }
+
+    .card-two-content {
+        @apply flex smp:flex-row flex-col smp:items-center items-start gap-6;
+    }
+
+    .card-two svg {
+        @apply md:min-w-40 md:min-h-40 w-auto h-auto min-w-24 min-h-24;
+    }
+
+    .card-two .content-text {
+        @apply *:mb-2 last:*:mb-0;
+    }
+
+
+
+
+
+    .card-five {
+        @apply relative w-full bg-azul flex flex-col items-center justify-center gap-8 rounded-3xl md:p-8 sm:p-6 px-4 py-6 h-full;
+    }
+
+    .card-five .card-five-img {
+        @apply max-w-64 w-full;
+    }
+
+    .card-five .card-five-content {
+        @apply flex flex-col items-center text-center gap-6;
+    }
+    */
+
+    /* Outros componentes comentados */
+    /*
+    .grafismo-section {
+        @apply relative;
+    }
+
+    .grafismo-section svg {
+        @apply relative w-full h-auto *:*:fill-azul;
+    }
+
+    .grafismo-section.grafismo-section-laranja svg {
+        @apply relative w-full h-auto *:*:fill-laranja;
+    }
+
+    .start-text-section {
+        @apply flex md:flex-row flex-col md:gap-10 gap-6;
+    }
+
+    .start-text-section h2 {
+        @apply lg:min-w-[320px];
+    }
+
+    .list-topic-1 {
+        @apply flex flex-col items-start gap-3;
+    }
+
+    .list-topic-1 li {
+        @apply flex flex-row items-center gap-4 sm:w-auto w-full sm:px-0 px-2 bg-light rounded-full;
+    }
+
+    .list-topic-1 li svg {
+        @apply relative w-auto h-full sm:max-w-[auto] sm:min-w-[auto] max-w-14 min-w-14;
+    }
+
+    .list-topic-1 li span {
+        @apply sm:py-0 py-6 pr-8 text-azul;
+    }
+
+    .list-topic-1 li span strong {
+        @apply font-deuterium-bold;
+    }
+
+    .list-topic-2 {
+        @apply flex flex-col gap-0 rounded-3xl overflow-hidden bg-laranja h-full;
+    }
+
+    .list-topic-2 li {
+        @apply w-full sm:p-6 py-6 px-4 bg-laranja h-full flex items-center;
+    }
+
+    .cta-text-destaque {
+        @apply flex smp:flex-row flex-col sm:items-center items-start gap-10;
+    }
+
+    .cta-text-destaque svg {
+        @apply md:w-64 md:h-64 md:min-w-64 md:min-h-64 sm:w-52 sm:h-52 sm:min-w-52 sm:min-h-52 w-32 h-32 min-w-32 *:fill-rosa;
+    }
+
+    .cta-text-destaque .titulo {
+        @apply md:text-3xl/snug text-2xl/snug text-white font-deuterium-normal;
+    }
+
+    .cta-text-destaque .titulo span {
+        @apply font-deuterium-bold;
+    }
+
+
+
+
+
+
+
+
+
+    .section-form {
+        @apply bg-azul rounded-3xl md:p-10 sm:p-6 p-4 py-8 relative overflow-hidden *:relative *:z-10;
+    }
+    
+    .section-form .grafismo-section-form {
+        @apply absolute bottom-0 right-0 z-0 sm:w-auto w-40 *:w-full *:h-auto;
+    }
+
+    .section-form .content-text {
+        @apply *:mb-4 last:*:mb-0 mb-8;
+    }
+
+    .section-form .content-text h2 {
+        @apply mb-4 text-3xl;
+    }
+
+    .form .form-content {
+        @apply flex flex-col gap-4
+    }
+
+    .form .form-row {
+        @apply flex md:flex-row items-start md:gap-10 flex-col gap-6;
+    }
+
+    .form .form-label-group {
+        @apply w-full flex flex-col gap-2 items-start text-white;
+    }
+
+    .form .form-label-group input {
+        @apply w-full p-4 rounded-full text-dark focus:outline-rosa focus:outline focus:outline-2 focus:-outline-offset-2;
+    }
+
+    .form .form-label-group .form-label-aceite-content {
+        @apply flex flex-row gap-2 items-center;
+    }
+
+    .form .form-label-group .form-label-aceite-content label {
+        @apply mt-1;
+    }
+
+    .form .form-label-group .form-label-aceite-content input {
+        @apply w-auto;
+    }
+
+    .footer-content {
+        @apply bg-white rounded-3xl flex flex-col;
+    }
+
+    .footer-content .footer-logos {
+        @apply md:px-10 sm:px-6 px-4 md:py-20 sm:py-14 py-8 border-b border-[#BBBBBB]/50 flex flex-row items-center justify-center;
+    }
+
+    .footer-content .footer-logos img {
+        @apply first:mr-6 first:pr-6 first:border-r first:border-[#BBBBBB]/50 md:max-h-[auto] sm:max-h-12 smp:max-h-10 max-h-7;
+    }
+
+    .footer-content .footer-copyright {
+        @apply md:px-10 sm:px-6 px-4 py-4 flex flex-col gap-2 items-center justify-between text-sm;
+    }
+
+    
+
+    
+    */
+}
+
+@layer utilities {
+    .font-deuterium-normal {
+        font-variation-settings: 'wght' 400;
+    }
+    .font-deuterium-medium {
+        font-variation-settings: 'wght' 480;
+    }
+    .font-deuterium-bold {
+        font-variation-settings: 'wght' 560;
+    }
+    .font-deuterium-black {
+        font-variation-settings: 'wght' 700;
+    }
+
+    .font-deuterium-light {
+        font-variation-settings: 'wght' 300;
+    }
+
+    .psection-top {
+        @apply lg:pt-28 pt-20;
+    }
+    .psection-bottom {
+        @apply lg:pb-28 pb-20;
+    }
+}
