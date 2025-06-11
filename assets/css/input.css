@@ -1,5 +1,5 @@
 @import url("https://use.typekit.net/axa8ihr.css");
-@import url("../libs/node_modules/@splidejs/splide/dist/css/splide-core.min.css");
+@import url("vendor/splide-core.min.css");
 
 @tailwind base;
 @tailwind components;
