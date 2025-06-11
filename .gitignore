@@ -27,23 +27,6 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
-# node_modules (ignorar tudo, exceto bibliotecas específicas necessárias)
-node_modules/
-
-# Permitir bibliotecas específicas necessárias para o projeto
-!assets/libs/node_modules/
-!assets/libs/node_modules/gsap/
-!assets/libs/node_modules/gsap/dist/
-!assets/libs/node_modules/gsap/dist/gsap.min.js
-!assets/libs/node_modules/gsap/dist/ScrollTrigger.min.js
-!assets/libs/node_modules/@splidejs/
-!assets/libs/node_modules/@splidejs/splide/
-!assets/libs/node_modules/@splidejs/splide/dist/
-!assets/libs/node_modules/@splidejs/splide/dist/js/
-!assets/libs/node_modules/@splidejs/splide/dist/js/splide.min.js
-!assets/libs/node_modules/@splidejs/splide/dist/css/
-!assets/libs/node_modules/@splidejs/splide/dist/css/splide-core.min.css
-
 # Optional npm cache directory
 .npm
 
